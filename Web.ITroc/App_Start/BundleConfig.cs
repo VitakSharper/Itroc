@@ -27,14 +27,14 @@ namespace Web.ITroc
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/style.css",
-                      "~/Content/toastr.css",
-                      "~/Content/typeahead.css",
-                      "~/Content/kendo/kendo.common.min.css",
-                      "~/Content/kendo/kendo.default.min.css",
-                      "~/Content/mdb.min.css"));
+                "~/Content/bootstrap.css",
+                "~/Content/mdb.min.css",
+                "~/Content/style.css",
+                "~/Content/toastr.css",
+                "~/Content/typeahead.css",
+                "~/Content/kendo/kendo.common.min.css",
+                "~/Content/kendo/kendo.default.min.css",
+                "~/Content/site.css"));
         }
     }
 }

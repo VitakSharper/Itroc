@@ -26,6 +26,7 @@ namespace Web.ITroc.Persistence.Repositories
                 .OrderByDescending(m => m.AdCeate)
                 .Select(m => new AdsToIndexViewModel
                 {
+                    Id = m.Id,
                     AdCreate = m.AdCeate,
                     AdTitle = m.AdTitle,
                     AdDescription = m.AdDescription,
