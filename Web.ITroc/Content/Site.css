@@ -1,0 +1,276 @@
+﻿/*body {
+    padding-top: 61px;
+    background: #333;
+    color: #fff;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}*/
+
+ /*Set padding to keep content from hitting the edges*/ 
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+ /*Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column*/ 
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+ /*Set width on the form input elements since they're 100% wide by default*/ 
+input,
+select,
+textarea {
+    max-width: 280px;
+
+}
+
+span.field-validation-error {
+    color: #e43333;
+    font-weight: bold;
+}
+
+
+
+/*-----------------------------------------MDB*/
+
+html,body,header,#intro {
+    height: 100%;
+}
+#intro {
+    /* ReSharper disable once Html.PathError */
+    background: url('img/Actu_France_Barter_980x326_image_bloc_entete.jpg') no-repeat center center fixed;
+    -ms-background-size: cover;
+    background-size: cover;
+}
+
+.top-nav-collapse {
+    background-color: #af3333;
+}
+/*---------------------------------------------MDB
+
+
+/*-----------------------------------KENDO
+
+
+    .dropZoneElement {
+        position: relative;
+        display: inline-block;
+        background-color: #f8f8f8;
+        border: 1px solid #c7c7c7;
+        width: 230px;
+        height: 110px;
+        text-align: center;
+    }
+
+    .textWrapper {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        font-size: 24px;
+        line-height: 1.2em;
+        font-family: Arial,Helvetica,sans-serif;
+        color: #000;
+    }
+
+    .dropImageHereText {
+        color: #c7c7c7;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+    .product {
+        float: left;
+        position: relative;
+        margin: 0 10px 10px 0;
+        padding: 0;
+    }
+
+        .product img {
+            width: 110px;
+            height: 110px;
+        }
+
+    .wrapper:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+
+
+
+/*-------------------------------------KENDO*/
+/*--------------------------Bootstrap 4 Costum*/
+/*#home-section {
+    background-image: url('img/Actu_France_Barter_980x326_image_bloc_entete.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 700px;
+}
+
+    #home-section .dark-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 700px;
+        background: #000000;
+        background: rgba(0,0,0,0.7);
+    }
+
+#home-section .home-inner {
+        padding-top: 70px;
+    }
+    #home-section .card-form {
+        opacity: 0.8;
+    }
+
+    #home-section .fas {
+        color: #008ed6;
+        background: #fff;
+        padding: 5px;
+        border-radius: 5px;
+
+    }*/
+/*----------------------BOOTSTRAP OVERRIDE*/
+/*body {
+    font-size: 17px;
+}*/
+.navbar {
+    /*background-color: #af3333;*/
+    -ms-opacity: 0.8;
+    opacity: 0.8;
+}
+
+/*.navbar .nav-item {
+    font-size: 1.4rem;
+    padding-left: 1.4rem;
+}*/
+
+/*.navbar .navbar-nav > li > a {
+        color: #f9f2f2;
+    }*/
+
+
+
+    /*.navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
+        background-color: rgba(177, 22, 22, 0.54);
+    }*/
+
+
+/*.navbar-brand {
+    font-size: 30px;
+    font-weight: 700;
+}
+.navbar .navbar-brand {
+    color: #ffbbf3;
+}*/
+
+
+/*.dropdown-menu {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}*/
+
+
+body,
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*p,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #fff;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-control {
+    font-size: 17px;
+    /*padding: 20px 15px;
+    /*border-radius: 9px;
+}
+
+    .form-control:focus {
+        border-color: #2196F3;
+         -webkit-box-shadow:none; 
+         box-shadow: none; 
+    }
+
+.btn {
+    padding: 7px 20px;
+    font-size: 17px;
+    border-radius: 22px;
+/*}*/
+
+/*-------------------------typeahead CSS*/
+.tt-menu {
+    background-color: #fff;
+}
+/*-------------------------typeahead CSS*/
+    /*#CodePostal {
+    display: inline-block;
+}*/
+    /*ADS INDEX DETAILS*/
+    .ads {
+    list-style: none;
+}
+
+.ads >.container {   /*the li imidiatly below .ads*/
+    position: relative;
+    margin-bottom: 30px
+}
+.ads>.container .date {
+    background: red;
+    color: white;
+    text-align: center;
+    width: 60px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.ads>.container .date .month {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 6px;
+}
+
+.ads>.container .date .day{
+    background: #f7f7f7;
+    color: #333;
+    font-size: 20px;
+    padding: 6px 12px;
+}
+
+
+
+.ads >.container .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
+
+    .ads > li .details .trockeur {
+        font-weight: bold;
+        display: block;
+    } 
+.ads > li .details .title {
+    font-size: 15px;
+        
+    }
+

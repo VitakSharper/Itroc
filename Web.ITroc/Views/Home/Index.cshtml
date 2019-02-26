@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Web.ITroc.Core.ViewModels.AdsToIndexViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<section class="text-center">
+    <h2 class="mb-5 font-weight-bold">Annonces</h2>
+
+
+    <div id="show-ads" class="view">
+        <div class="ads">
+            <div class="container d-flex ">
+                <div class="row">
+                    @foreach (var ad in Model)
+                    {
+                        
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card card-cascade narrower blue lighten-3 hoverable">
+                                <div class="view view-cascade overlay">
+                                    <img src="@($"data:image/png;base64,{@ad.PhotoAd}")" class="img-fluid card-img-top" alt="@ad.AdTitle">
+                                    <a>
+                                        <div class="mask rgba-amber-slight"></div>
+                                    </a>
+                                </div>
+                                <div class="card-body card-body-cascade ">
+                                    <div class="date view overlay">
+                                        <div class="month">
+                                            @ad.AdCreate.ToString("MMM")
+                                        </div>
+                                        <div class="day">
+                                            @ad.AdCreate.ToString("d ")
+                                        </div>
+                                    </div>
+                                    <h4 class="card-title">@ad.AdTitle</h4>
+                                    <p class="card-text text-muted">@ad.AdDescription</p>
+                                    <a href="#" class="btn btn-unique" data-toggle="modal" data-target="#centralModalSm" data-adId="@ad.">Voir L'annonce</a>
+                                </div>
+                            </div>
+                            <hr class="my-5" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

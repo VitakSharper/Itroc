@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNet.Identity
+@using System.Security.Claims
+@using Ninject.Activation
+@using Web.ITroc.Core
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "ml-auto" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fas fa-user"><span class="font-weight-bold text-uppercase text-light">@User.Identity.GetFullName()</span></i>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav ml-auto">
+        <li>@Html.ActionLink("S’inscrire", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

@@ -1,0 +1,170 @@
+﻿@model Web.ITroc.Core.ViewModels.AddAnnonceViewModel
+
+@{
+    ViewBag.Title = "title";
+}
+
+
+<div class="container " id="create-ad">
+    <section id="create-form" class="text-center">
+        <h2 class="mb-5 font-weight-bold">Ajouter une Annonce</h2>
+        <div class="row">
+            <div class="card col-lg-4 rgba-orange-strong view overlay hoverable text-left">
+                <div class="card-body ">
+                    @using (Html.BeginForm("Create", "Ads", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <p id="errField" class="alert alert-info" style="width: 280px; font-size: small;">* Tous les champs sont <strong>obligatoires</strong>.</p>
+                            @Html.LabelFor(m => m.Category)
+                            @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "CatName"),
+                                "", new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Category)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.AdTitle)
+                            @Html.TextBoxFor(m => m.AdTitle, new { @class = "form-control", autofocus = "autofocus", placeholder = "Votre titre:" })
+                            @Html.ValidationMessageFor(m => m.AdTitle)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.AdDescription)
+                            @Html.TextAreaFor(m => m.AdDescription, new { @class = "form-control", @rows = "10", @maxLength = "255", @style = "resize: none;", placeholder = "carracteres max 255" })
+                            @Html.ValidationMessageFor(m => m.AdDescription)
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Adresse)
+                            @Html.TextBoxFor(m => m.Adresse, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Adresse)
+                        </div>
+
+                        <div class="form-group col-md-2 col-lg-3">
+                            @Html.LabelFor(m => m.CodePostal)
+                            <div class="tt-container">
+                                @Html.TextBoxFor(m => m.CodePostal, new { @class = "form-control ", maxLength = "5", @style = "width:76px;", placeholder = "75001", @id = "htmlCodePostal" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.CodePostal)
+                        </div>
+
+                        <div class="form-group col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.Ville)
+                            <div class="tt-container">
+                                @Html.TextBoxFor(m => m.Ville, new { @class = "form-control", maxLength = "25", @style = "width:250px;", placeholder = "Paris", @id = "htmlVille" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Ville)
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Files)
+                            @(Html.Kendo().Upload()
+                                          .Name("Files")
+                                          .Multiple(true)
+                                          .HtmlAttributes(new { accept = "image/*" })
+                                          .Events(e => e.Select("onSuccess"))
+                                          .ShowFileList(true)
+                                          
+                            )
+
+                            @Html.ValidationMessageFor(x => x.Files)
+                        </div>
+                        <button class=" btn waves-effect waves-light " type="submit">VALIDER MON ANNONCE</button>
+                        @Html.HiddenFor(m => m.ErrorMess, new { @id = "errMsg", errror = @Model.ErrorMess })
+                    }
+                </div>
+            </div>
+                <div id="products" class="col-lg-4"></div>
+        </div>
+    </section>
+</div>
+
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        function onSuccess(e) {
+            if (e.operation !== "upload") {
+                for (var i = 0; i < e.files.length; i++) {
+                    var file = e.files[i].rawFile;
+                    if (file) {
+                        var reader = new FileReader();
+
+                        reader.onloadend = function () {
+                            $("<div class='product view overlay hoverable'><img class='img-fluid' src=" + this.result + " /></div>").appendTo($("#products"));
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                }
+            }
+        };
+
+        $(document).ready(function () {
+
+
+
+            var showErrMes = function () {
+                if ($("#errMsg").attr("errror").length) {
+
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-center",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "900",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+                    toastr["warning"]($("#errMsg").attr("errror"));
+                }
+            }();
+
+            var codePostal = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('CodePostal'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/Codepostal?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+
+
+            $('#htmlCodePostal').typeahead({
+                minLength: 2,
+                highlight: true
+            }, {
+                    name: 'Codepostal',
+                    display: 'Cp',
+                    limit: 6,
+                    source: codePostal
+                }
+            );
+
+            $('#htmlVille').typeahead({
+                minLength: 2,
+                highlight: true
+            }, {
+                    name: 'Codepostal',
+                    display: 'Ville',
+                    limit: 6,
+                    source: codePostal
+                }).on("typeahead:select", function (e, Codepostal) {
+                    $("#htmlCodePostal").typeahead("val", Codepostal.Cp); //equivalent $(xxx).val(Codepostal.Cp)
+                });
+
+
+        });
+    </script>
+}
+

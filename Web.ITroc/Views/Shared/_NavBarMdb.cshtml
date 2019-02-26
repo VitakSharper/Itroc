@@ -1,0 +1,36 @@
+﻿<nav class="navbar navbar-dark navbar-expand-lg  fixed-top scrolling-navbar" id="main-nav">
+    <div class="container">
+        <i class="fas fa-people-carry">
+            @Html.ActionLink("ITroc", "Index", "Home", new { area = "" }, new { @class = "navbar-brand d-inline align-middle" })
+        </i>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="False" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+            <ul class="navbar-nav mr-auto smooth-scroll">
+
+                <li class="nav-item">
+                    <div class="btn-group">
+                        @Html.ActionLink("Crée une nouvelle Annonce", "Create", "Ads", "", new { @class = "  btn btn-elegant" })
+                    </div>
+                </li>
+                @{
+                    if (Request.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <div class="btn-group">
+                                @Html.ActionLink("Voir mes Annonces", "UserAds", "Home", "", new { @class = "  btn btn-elegant" })
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</nav>
