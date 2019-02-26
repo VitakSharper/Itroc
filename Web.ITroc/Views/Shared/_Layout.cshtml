@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/lib")
+
 
 </head>
 <body data-spy="scroll" data-target="#main-nav">
@@ -32,12 +32,12 @@
             </div>
         </div>
     </div>
+    @Scripts.Render("~/bundles/lib")
 
-
-<main class="mt-5">
-    @Html.Partial("_AdInfoMod")
-    @RenderBody()
-</main>
+    <main class="mt-5">
+        @Html.Partial("_AdInfoMod")
+        @RenderBody()
+    </main>
 
 
 
@@ -55,7 +55,7 @@
 
 
 
-
+    @Scripts.Render("~/bundles/mdb")
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -25,28 +25,3 @@
 </div>
 <!-- Central Modal Small -->
 
-@section scripts{
-    
-    <script>
-        $(document).ready(function(){
-            
-            $.ajax({
-                url: '',
-                type: 'POST',
-                dataType: 'json',
-                data: { _id: $('#selection').attr('data-selection'), User_Id: $('#selection').attr('data-user') },
-        success: function (data) {
-            window.location.href = '/espacemembre'
-        },
-        error: function (err) {
-            alert("Erreur lors de l'effacement");
-            console.log(err)
-            window.location.href = '/espacemembre'
-
-        }
-        });
-
-        });
-    </script>
-
-}

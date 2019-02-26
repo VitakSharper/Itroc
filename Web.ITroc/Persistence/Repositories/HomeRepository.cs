@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Web.ITroc.Core.Repositories;
 using Web.ITroc.Core.ViewModels;
 
@@ -15,7 +16,7 @@ namespace Web.ITroc.Persistence.Repositories
             _context = context;
         }
 
-        public IEnumerable<AdsToIndexViewModel> GetAllAdsToIndex()
+        public Task<List<AdsToIndexViewModel>> GetAllAdsToIndex()
         {
 
             var result = _context.Adses
@@ -32,7 +33,7 @@ namespace Web.ITroc.Persistence.Repositories
                     AdDescription = m.AdDescription,
                     PhotoAd = m.Images.Select(i => i.FileBase64).Take(1).FirstOrDefault()
                 })
-                .ToList();
+                .ToListAsync();
 
 
 
@@ -41,7 +42,7 @@ namespace Web.ITroc.Persistence.Repositories
 
 
 
-        public IEnumerable<AdsToIndexViewModel> GetUsersAdsToIndex(string userId)
+        public Task<List<AdsToIndexViewModel>> GetUsersAdsToIndex(string userId)
         {
             return _context.Adses
                 .Include(m => m.Images)
@@ -53,7 +54,7 @@ namespace Web.ITroc.Persistence.Repositories
                     AdTitle = m.AdTitle,
                     AdDescription = m.AdDescription,
                     PhotoAd = m.Images.Select(i => i.FileBase64).Take(1).FirstOrDefault()
-                }).ToList();
+                }).ToListAsync();
         }
 
 
