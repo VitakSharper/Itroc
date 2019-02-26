@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Web.ITroc.Core.Dtos;
 using Web.ITroc.Core.Models;
-using Web.ITroc.Core.ViewModels;
 
 namespace Web.ITroc.App_Start
 {
@@ -8,7 +8,7 @@ namespace Web.ITroc.App_Start
     {
         public MappingProfile()
         {
-            CreateMap<Ads, AdsToIndexViewModel>();
+            Mapper.CreateMap<Codepostal, PostalCodeDto>();
         }
     }
 }

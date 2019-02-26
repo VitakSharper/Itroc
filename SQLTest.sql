@@ -17,6 +17,11 @@ delete Ads where ads.id in
 left join Images on Ads.Id=Images.AdId
 where images.adid is null)
 
+select *from ads 
+left join Images on Ads.Id=Images.AdId
+where  Ads.Id=11
+
+
 sp_help ads
 truncate table ads
 

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using Web.ITroc.Core;
 using Web.ITroc.Core.Dtos;
+using Web.ITroc.Core.Models;
 
 namespace Web.ITroc.Controllers.api
 {
@@ -19,18 +21,23 @@ namespace Web.ITroc.Controllers.api
         public IEnumerable<PostalCodeDto> GetCodepostal(string query = "")
         {
             var postalcode = _unitOfWork.CodepostalApi.GetCpOrVilleByQuery(query);
-
-
-            //Mapper.CreateMap<Codepostal, PostalCodeDto>();
-
-            //var result = postalcode.Select(Mapper.Map<Codepostal, PostalCodeDto>);
-            var result = postalcode.Select(x => new PostalCodeDto
-            {
-                Cp = x.Cp,
-                Ville = x.Ville
-            });
-            return result;
+            //var result = postalcode.Select(x => new PostalCodeDto
+            //{
+            //    Cp = x.Cp,
+            //    Ville = x.Ville
+            //});
+            return postalcode.Select(Mapper.Map<Codepostal, PostalCodeDto>);
         }
+
+
+        public IEnumerable<AdsDto> GetAddInfoToModal(int id)
+        {
+
+            var singleAd = _unitOfWork.CodepostalApi.GetOneAdFromDb(id);
+
+            return singleAd;
+        }
+
 
     }
 }
