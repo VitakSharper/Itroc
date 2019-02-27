@@ -45,11 +45,13 @@
     </div>
 </section>
 
+
+
 @section scripts{
 
     <script>
-            $('.mdb-select').materialSelect();
         $(document).ready(function () {
+            $('.mdb-select').materialSelect();
             //---------------show MODALS
             //$(function() {
             //    $("a[data-modal]").on("click",
@@ -78,18 +80,20 @@
                         $(".product-name").empty();
                         $(".green-text").empty();
                         var dateAd = new Date(data[0].AdCeate);
-                      console.log(  dateAd.getDate());
 
                         $(".product-name").append('<strong>' + data[0].AdTitle + '</strong>');
-                        $(".green-text").append('<strong>' + data[0].AdCreate+'</strong>');
+                        $(".green-text").append('<strong>' + data[0].AdCeate+'</strong>');
 
-                        $('.carousel-inner').append('<div class="carousel-item active"><img class="d-block w-100"  src="data:image/png;base64,' + data[0].Images[0] + '"alt="First slide"></div>');
-                        //$('.carousel-indicators.active').append('<img class="d-block img-fluid"  src="data:image/png;base64,' +data[0].Images[0] +'"alt="First slide">');
+                        $('.carousel-inner').append('<div class="carousel-item active"><img class="d-block w-100 monimage1"  src="data:image/png;base64,' + data[0].Images[0] + '"alt="First slide"></div>');
+                        $('.carousel-indicators').append('<li data-target="#carousel-thumb" data-slide-to="0" class="active"><img class="d-block monimage2"  src="data:image/png;base64,' + data[0].Images[0] +'"></li>');
 
                         for (var i = 0; i < data[0].Images.length; i++) {
                             $('.carousel-inner').append(
-                                    '<div class="carousel-item"><img class="d-block w-100" src="data:image/png;base64,' +
-                                    data[0].Images[i] +'" ></div>');
+                                    '<div class="carousel-item"><img class="d-block w-100 monimage1" src="data:image/png;base64,' +
+                                data[0].Images[i] + '"alt="Second slide" ></div>');
+                        }
+                        for (var j = 1; j < data[0].Images.length; j++) {
+                            $('.carousel-indicators').append('<li data-target="#carousel-thumb" data-slide-to="' + (j + 1) + '"><img class="mx-auto d-block  monimage2 avatar z-depth-1 img-fluid"  src="data:image/png;base64,' + data[0].Images[j] + '"></li>');
                         }
 
 

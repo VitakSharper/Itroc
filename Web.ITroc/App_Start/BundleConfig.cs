@@ -10,6 +10,7 @@ namespace Web.ITroc
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
+                        "~/Scripts/popper.min.mdb.js",
                         "~/Scripts/toastr.js",
                         "~/Scripts/typeahead.bundle.js",
                         "~/Scripts/kendo/kendo.all.min.js",
