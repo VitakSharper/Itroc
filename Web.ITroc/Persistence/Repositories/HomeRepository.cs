@@ -33,10 +33,6 @@ namespace Web.ITroc.Persistence.Repositories
                     AdDescription = m.AdDescription,
                     PhotoAd = m.Images.Select(i => i.FileBase64).Take(1).FirstOrDefault()
                 }).ToListAsync();
-
-
-
-
             return result;
         }
 
@@ -50,13 +46,12 @@ namespace Web.ITroc.Persistence.Repositories
                 .OrderByDescending(m => m.AdCeate)
                 .Select(m => new AdsToIndexViewModel
                 {
+                    Id = m.Id,
                     AdCreate = m.AdCeate,
                     AdTitle = m.AdTitle,
                     AdDescription = m.AdDescription,
                     PhotoAd = m.Images.Select(i => i.FileBase64).Take(1).FirstOrDefault()
                 }).ToListAsync();
         }
-
-
     }
 }

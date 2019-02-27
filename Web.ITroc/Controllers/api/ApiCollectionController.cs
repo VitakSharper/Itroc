@@ -33,9 +33,7 @@ namespace Web.ITroc.Controllers.api
 
         public async Task<IEnumerable<AdsDto>> GetAdInfoToModal(int id)
         {
-
             var singleAd = await _unitOfWork.ApiCollection.GetOneAdFromDb(id);
-
             return singleAd;
         }
 
