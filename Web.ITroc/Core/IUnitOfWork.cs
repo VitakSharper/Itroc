@@ -7,7 +7,7 @@ namespace Web.ITroc.Core
         IAdsRepository Ads { get; }
         IHomeRepository Home { get; }
         IImageRepository Image { get; }
-        ICodepostalApiRepository CodepostalApi { get; }
+        IApiCollectionRepository ApiCollection { get; }
         void Complete();
     }
 }

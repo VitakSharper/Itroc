@@ -226,7 +226,7 @@
     <Compile Include="Core\Dtos\CategoryDto.cs" />
     <Compile Include="Core\Dtos\CodepostalDto.cs" />
     <Compile Include="Core\Dtos\AdsDto.cs" />
-    <Compile Include="Controllers\api\CodepostalController.cs" />
+    <Compile Include="Controllers\api\ApiCollectionController.cs" />
     <Compile Include="Core\Dtos\PostalCodeDto.cs" />
     <Compile Include="Core\etst.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
@@ -244,8 +244,8 @@
     <Compile Include="Persistence\Migrations\201902251352170_AddColumnsInUserTable.Designer.cs">
       <DependentUpon>201902251352170_AddColumnsInUserTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Persistence\Repositories\CodepostalApiRepository.cs" />
-    <Compile Include="Core\Repositories\ICodepostalApiRepository.cs" />
+    <Compile Include="Persistence\Repositories\ApiCollectionCollectionRepository.cs" />
+    <Compile Include="Core\Repositories\IApiCollectionRepository.cs" />
     <Compile Include="Persistence\Repositories\ImageRepository.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Persistence\Repositories\AdsRepository.cs" />

@@ -50,6 +50,7 @@ html,body,header,#intro {
     background: url('img/Actu_France_Barter_980x326_image_bloc_entete.jpg') no-repeat center center fixed;
     -ms-background-size: cover;
     background-size: cover;
+    height: 50%;
 }
 
 .top-nav-collapse {

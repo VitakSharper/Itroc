@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Web.ITroc.Core.Dtos;
 using Web.ITroc.Core.Models;
 using Web.ITroc.Core.Repositories;
@@ -9,13 +10,13 @@ namespace Web.ITroc.Persistence.Repositories
 {
 
 
-    public class CodepostalApiRepository : ICodepostalApiRepository
+    public class ApiCollectionCollectionRepository : IApiCollectionRepository
     {
 
 
         private readonly ApplicationDbContext _context;
 
-        public CodepostalApiRepository(ApplicationDbContext context)
+        public ApiCollectionCollectionRepository(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -29,16 +30,15 @@ namespace Web.ITroc.Persistence.Repositories
         }
 
 
-        public IEnumerable<AdsDto> GetOneAdFromDb(int id)
+        public async Task<IEnumerable<AdsDto>> GetOneAdFromDb(int id)
         {
-            var resultDbAdses = _context.Adses
+            var resultDbAdses = await _context.Adses
                 .Include(m => m.Category)
                 .Include(m => m.Images)
                 .Include(m => m.Codepostal)
+                .Include(m => m.User)
                 .Where(m => m.Id == id && m.Poubelle == false)
-                .ToList();
-
-
+                .ToListAsync();
 
 
             var resultDto = resultDbAdses.Select(x => new AdsDto
@@ -48,12 +48,11 @@ namespace Web.ITroc.Persistence.Repositories
                 AdTitle = x.AdTitle,
                 AdDescription = x.AdDescription,
                 AdAdresse = x.AdAdresse,
-                FileBase64 = x.Images[2],
                 Category = new CategoryDto { CatName = x.Category.CatName },
-                Codepostal = new CodepostalDto { Cp = x.Codepostal.Cp, Ville = x.Codepostal.Ville }
+                Codepostal = new CodepostalDto { Cp = x.Codepostal.Cp, Ville = x.Codepostal.Ville },
+                User = new ApplicationUserDto { CodePostal = x.User.CodePostal, Nom = x.User.Nom, Prenom = x.User.Prenom },
+                Images = x.Images.Select(w => w.FileBase64).ToList()
             });
-
-
             return resultDto;
         }
 

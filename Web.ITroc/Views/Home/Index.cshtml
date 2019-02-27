@@ -15,9 +15,8 @@
                 <div class="row">
                     @foreach (var ad in Model)
                     {
-
                         <div class="col-lg-6 col-md-6">
-                            <div class="card card-cascade narrower blue lighten-3 hoverable">
+                            <div class="card card-cascade narrower blue lighten-3 hoverable" onclick="imageTrigger(@ad.Id)">
                                 <div class="view view-cascade overlay">
                                     <img src="@($"data:image/png;base64,{@ad.PhotoAd}")" class="img-fluid card-img-top" alt="@ad.AdTitle">
                                     <a>
@@ -35,7 +34,6 @@
                                     </div>
                                     <h4 class="card-title">@ad.AdTitle</h4>
                                     <p class="card-text text-muted">@ad.AdDescription</p>
-                                    <a href="#" class="btn btn-unique" data-toggle="modal" data-target="#centralModalSm" data-adId="@ad.Id">Voir L'annonce</a>
                                 </div>
                             </div>
                             <hr class="my-5" />
@@ -61,12 +59,27 @@
             //            return false;
             //        });
             //});
+            
 
-
-            $.ajax({
-            });
+            
 
         });
+        function imageTrigger(id) {
+            $.ajax({
+                url: "/api/ApiCollection/GetAdInfoToModal?id="+id+78,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    console.log(data[0].Id);
+                },
+                error: function (err) {
+                    console.log(err);
+                    window.location.href = "/";
+                }
+
+            });
+            
+        }
     </script>
 
 }

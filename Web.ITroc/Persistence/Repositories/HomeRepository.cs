@@ -32,8 +32,8 @@ namespace Web.ITroc.Persistence.Repositories
                     AdTitle = m.AdTitle,
                     AdDescription = m.AdDescription,
                     PhotoAd = m.Images.Select(i => i.FileBase64).Take(1).FirstOrDefault()
-                })
-                .ToListAsync();
+                }).ToListAsync();
+
 
 
 

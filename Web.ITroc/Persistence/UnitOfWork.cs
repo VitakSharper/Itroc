@@ -11,7 +11,7 @@ namespace Web.ITroc.Persistence
         public IAdsRepository Ads { get; private set; }
         public IHomeRepository Home { get; private set; }
         public IImageRepository Image { get; private set; }
-        public ICodepostalApiRepository CodepostalApi { get; private set; }
+        public IApiCollectionRepository ApiCollection { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -19,7 +19,7 @@ namespace Web.ITroc.Persistence
             Ads = new AdsRepository(_context);
             Home = new HomeRepository(_context);
             Image = new ImageRepository(_context);
-            CodepostalApi = new CodepostalApiRepository(_context);
+            ApiCollection = new ApiCollectionCollectionRepository(_context);
         }
 
         public void Complete()

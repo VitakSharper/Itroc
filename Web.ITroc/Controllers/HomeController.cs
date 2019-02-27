@@ -20,9 +20,9 @@ namespace Web.ITroc.Controllers
         {
             //if (User.Identity.GetFullName() == string.Empty)
             //    return RedirectToAction("LogOffEmptyUser", "Account");
-            var results = _unitOfWork.Home.GetAllAdsToIndex();
+            var results = await _unitOfWork.Home.GetAllAdsToIndex();
 
-            return View(await results);
+            return View(results);
         }
 
 
@@ -33,9 +33,9 @@ namespace Web.ITroc.Controllers
         {
             var userId = User.Identity.GetUserId();
 
-            var results = _unitOfWork.Home.GetUsersAdsToIndex(userId);
+            var results = await _unitOfWork.Home.GetUsersAdsToIndex(userId);
 
-            return View("Index", await results);
+            return View("Index", results);
         }
 
     }
