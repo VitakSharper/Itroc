@@ -75,6 +75,13 @@
 
                         $('.carousel-inner').empty();
                         $('.carousel-indicators').empty();
+                        $(".product-name").empty();
+                        $(".green-text").empty();
+                        var dateAd = new Date(data[0].AdCeate);
+                      console.log(  dateAd.getDate());
+
+                        $(".product-name").append('<strong>' + data[0].AdTitle + '</strong>');
+                        $(".green-text").append('<strong>' + data[0].AdCreate+'</strong>');
 
                         $('.carousel-inner').append('<div class="carousel-item active"><img class="d-block w-100"  src="data:image/png;base64,' + data[0].Images[0] + '"alt="First slide"></div>');
                         //$('.carousel-indicators.active').append('<img class="d-block img-fluid"  src="data:image/png;base64,' +data[0].Images[0] +'"alt="First slide">');
