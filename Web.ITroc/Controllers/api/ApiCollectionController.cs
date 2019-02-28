@@ -6,6 +6,7 @@ using System.Web.Http;
 using Web.ITroc.Core;
 using Web.ITroc.Core.Dtos;
 using Web.ITroc.Core.Models;
+using Web.ITroc.Core.ViewModels;
 
 namespace Web.ITroc.Controllers.api
 {
@@ -22,11 +23,6 @@ namespace Web.ITroc.Controllers.api
         public IEnumerable<PostalCodeDto> GetCodepostal(string query = "")
         {
             var postalcode = _unitOfWork.ApiCollection.GetCpOrVilleByQuery(query);
-            //var result = postalcode.Select(x => new PostalCodeDto
-            //{
-            //    Cp = x.Cp,
-            //    Ville = x.Ville
-            //});
             return postalcode.Select(Mapper.Map<Codepostal, PostalCodeDto>);
         }
 
@@ -35,6 +31,11 @@ namespace Web.ITroc.Controllers.api
         {
             var singleAd = await _unitOfWork.ApiCollection.GetOneAdFromDb(id);
             return singleAd;
+        }
+
+        public async Task<IEnumerable<AdsToIndexViewModel>> GetAllAds()
+        {
+            return await _unitOfWork.Home.GetAllAdsToIndex();
         }
 
 

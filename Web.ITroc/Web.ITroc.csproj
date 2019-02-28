@@ -222,13 +222,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdsController.cs" />
+    <Compile Include="Core\CustomValidation.cs" />
     <Compile Include="Core\Dtos\ApplicationUserDto.cs" />
     <Compile Include="Core\Dtos\CategoryDto.cs" />
     <Compile Include="Core\Dtos\CodepostalDto.cs" />
     <Compile Include="Core\Dtos\AdsDto.cs" />
     <Compile Include="Controllers\api\ApiCollectionController.cs" />
     <Compile Include="Core\Dtos\PostalCodeDto.cs" />
-    <Compile Include="Core\etst.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\IAdsRepository.cs" />
     <Compile Include="Core\Repositories\IHomeRepository.cs" />
@@ -244,7 +244,7 @@
     <Compile Include="Persistence\Migrations\201902251352170_AddColumnsInUserTable.Designer.cs">
       <DependentUpon>201902251352170_AddColumnsInUserTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Persistence\Repositories\ApiCollectionCollectionRepository.cs" />
+    <Compile Include="Persistence\Repositories\ApiCollectionRepository.cs" />
     <Compile Include="Core\Repositories\IApiCollectionRepository.cs" />
     <Compile Include="Persistence\Repositories\ImageRepository.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />

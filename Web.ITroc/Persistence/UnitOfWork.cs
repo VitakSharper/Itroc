@@ -19,7 +19,7 @@ namespace Web.ITroc.Persistence
             Ads = new AdsRepository(_context);
             Home = new HomeRepository(_context);
             Image = new ImageRepository(_context);
-            ApiCollection = new ApiCollectionCollectionRepository(_context);
+            ApiCollection = new ApiCollectionRepository(_context);
         }
 
         public void Complete()

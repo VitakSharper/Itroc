@@ -35,7 +35,6 @@ namespace Web.ITroc.Core.ViewModels
         [Display(Name = "Ville")]
         public string Ville { get; set; }
 
-
         //[Required(ErrorMessage = "*")]
         [Display(Name = "Ajoutez une photo")]
         public List<HttpPostedFileBase> Files { get; set; }

@@ -205,3 +205,14 @@ sur la vue ou on veut implementer la CSV il faut ajouter le script jqueryval : "
 
 
 -----UDEMY -- 95Sdjs7KBAzmDNq
+
+
+
+---API MVC
+
+il faut ajouter  {action} dans App_Start WebApiConfig.cs:
+ config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );

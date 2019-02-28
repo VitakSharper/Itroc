@@ -10,13 +10,13 @@ namespace Web.ITroc.Persistence.Repositories
 {
 
 
-    public class ApiCollectionCollectionRepository : IApiCollectionRepository
+    public class ApiCollectionRepository : IApiCollectionRepository
     {
 
 
         private readonly ApplicationDbContext _context;
 
-        public ApiCollectionCollectionRepository(ApplicationDbContext context)
+        public ApiCollectionRepository(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -53,6 +53,9 @@ namespace Web.ITroc.Persistence.Repositories
                 User = new ApplicationUserDto { CodePostal = x.User.CodePostal, Nom = x.User.Nom, Prenom = x.User.Prenom },
                 Images = x.Images.Select(w => w.FileBase64).ToList()
             });
+
+
+
             return resultDto;
         }
 

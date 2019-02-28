@@ -133,7 +133,7 @@
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('CodePostal'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
                 remote: {
-                    url: '/api/Codepostal?query=%QUERY',
+                    url: '/api/ApiCollection/GetCodepostal?query=%QUERY',
                     wildcard: '%QUERY'
                 }
             });
