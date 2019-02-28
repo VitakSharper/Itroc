@@ -15,7 +15,7 @@
                 <div class="row">
                     @foreach (var ad in Model)
                     {
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-2 col-md-6">
                             <div class="card card-cascade narrower blue lighten-3 hoverable" data-toggle="modal" data-target="#modalQuickView" onclick="imageTrigger(@ad.Id)">
                                 <div class="view view-cascade overlay">
                                     <img src="@($"data:image/png;base64,{@ad.PhotoAd}")" class="img-fluid card-img-top" alt="@ad.AdTitle">
@@ -32,8 +32,8 @@
                                             @ad.AdCreate.ToString("d ")
                                         </div>
                                     </div>
-                                    <h4 class="card-title">@ad.AdTitle</h4>
-                                    <p class="card-text text-muted">@ad.AdDescription</p>
+                                    <h4 class="card-title cardtext">@ad.AdTitle</h4>
+                                    <p class="card-text text-muted cardtext">@ad.AdDescription</p>
                                 </div>
                             </div>
                             <hr class="my-5" />
@@ -72,9 +72,6 @@
                 dataType: "json",
                 success: function(data) {
                     if (data && data[0]) {
-
-                        //$(".modaltitle").html(data[0].AdTitle);
-
                         $('.carousel-inner').empty();
                         $('.carousel-indicators').empty();
                         $(".product-name").empty();

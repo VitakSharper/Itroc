@@ -58,10 +58,14 @@ html, body, header, #intro {
 }
 /*---------------------------------------------MDB*/
 
-
+/*-----------------------------Description textarea limit*/
+.cardtext {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
 /*-----------------------------------KENDO*/
-
-
 /*.dropZoneElement {
         position: relative;
         display: inline-block;
@@ -108,10 +112,7 @@ html, body, header, #intro {
         clear: both;
         visibility: hidden;
     }*/
-
-
 /*-------------------------------------KENDO*/
-
 /*-----------------------------Image*/
 /*.bigimagediv {
     width: 100%;
@@ -122,7 +123,6 @@ html, body, header, #intro {
     width: 400px;
     padding: 5%;
 }*/
-
 .smallimage {
     height: 70px;
     width: 70px;

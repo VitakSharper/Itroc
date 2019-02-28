@@ -13,13 +13,11 @@ namespace Web.ITroc
                         "~/Scripts/popper.min.mdb.js",
                         "~/Scripts/toastr.js",
                         "~/Scripts/typeahead.bundle.js",
+                        "~/Scripts/mdb.js",
                         "~/Scripts/kendo/kendo.all.min.js",
                         "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
 
 
-            bundles.Add(new ScriptBundle("~/bundles/mdb").Include(
-                "~/Scripts/mdb.js"
-                ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
