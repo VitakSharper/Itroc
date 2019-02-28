@@ -57,12 +57,12 @@
                         <div class="form-group">
                             @Html.LabelFor(x => x.Files)
                             @(Html.Kendo().Upload()
-                                          .Name("Files")
-                                          .Multiple(true)
-                                          .HtmlAttributes(new { accept = "image/*" })
-                                          .Events(e => e.Select("onSuccess"))
-                                          .ShowFileList(true)
-                                          
+                                                  .Name("Files")
+                                                  .Multiple(true)
+                                                  .HtmlAttributes(new { accept = "image/*" })
+                                                  .Events(e => e.Select("onSuccess"))
+                                                  .ShowFileList(true)
+
                             )
 
                             @Html.ValidationMessageFor(x => x.Files)
@@ -72,7 +72,7 @@
                     }
                 </div>
             </div>
-                <div id="products" class="col-lg-4"></div>
+            <div id="products" class="col-lg-4"></div>
         </div>
     </section>
 </div>
@@ -85,6 +85,7 @@
     @Scripts.Render("~/bundles/jqueryval")
 
     <script>
+
         function onSuccess(e) {
             if (e.operation !== "upload") {
                 for (var i = 0; i < e.files.length; i++) {
@@ -101,10 +102,7 @@
             }
         };
 
-        $(document).ready(function () {
-
-
-
+        $(function () {
             var showErrMes = function () {
                 if ($("#errMsg").attr("errror").length) {
 
