@@ -80,3 +80,22 @@ $('span').click(function(){
 	var elementKids=$(this).closest('ul').attr('title');---------------ramenne tout les elements a coter de 'ul'
 	console.log(elementKids);
 })
+
+$('span').click(function(){
+$(this).next().css('color','red'); applique le csss sur le prochaine span;
+.prev() ---l'element d'avant
+.nextAll() --- tout les prochaines apres span
+.prevAll() --- tout les elements d'avant
+.find('span').css('color','red')-- affecte tout les span apres le parent
+})
+
+----------------------------------------------------
+$('span').css({
+'border-color':'red',
+'border-width':'1px',
+'border-style':'solid',
+'padding':'5px'
+})
+$('span').click(function(){
+	$(this).siblings().text('testtest'); ---s'applique sur frères et soeurs
+})
