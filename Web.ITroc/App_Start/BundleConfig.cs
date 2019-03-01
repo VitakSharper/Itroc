@@ -15,7 +15,8 @@ namespace Web.ITroc
                         "~/Scripts/typeahead.bundle.js",
                         "~/Scripts/mdb.js",
                         "~/Scripts/kendo/kendo.all.min.js",
-                        "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
+                        "~/Scripts/kendo/kendo.aspnetmvc.min.js",
+                        "~/Scripts/local/imgInfoAjax.js"));
 
 
 

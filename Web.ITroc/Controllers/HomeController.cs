@@ -35,7 +35,7 @@ namespace Web.ITroc.Controllers
 
             var results = await _unitOfWork.Home.GetUsersAdsToIndex(userId);
 
-            return View("Index", results);
+            return View(results);
         }
 
     }

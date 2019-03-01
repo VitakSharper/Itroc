@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Web.ITroc.Core.ViewModels.AdsToIndexViewModel>
+
+
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "UserAds";
 }
 
 @Html.Partial("_AdInfoMod2")
@@ -15,9 +17,9 @@
                     @foreach (var ad in Model)
                     {
                         <div class="col-lg-2 col-md-6">
-                            <div class="card card-cascade narrower blue lighten-3 hoverable" >
+                            <div class="card card-cascade narrower blue lighten-3 hoverable">
                                 <div class="view view-cascade overlay" data-toggle="modal" data-target="#modalQuickView" onclick="imageTrigger(@ad.Id)">
-                                    <img src="@($"data:image/png;base64,{@ad.PhotoAd}")" class="img-fluid card-img-top imgMin"  alt="@ad.AdTitle">
+                                    <img src="@($"data:image/png;base64,{@ad.PhotoAd}")" class="img-fluid card-img-top imgMin" alt="@ad.AdTitle">
                                     <a>
                                         <div class="mask rgba-amber-slight"></div>
                                     </a>

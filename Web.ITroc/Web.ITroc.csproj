@@ -1849,6 +1849,7 @@
     <Content Include="Scripts\kendo\messages\kendo.messages.zh-HK.min.js" />
     <Content Include="Scripts\kendo\messages\kendo.messages.zh-TW.min.js" />
     <Content Include="Scripts\kendo\pako_deflate.min.js" />
+    <Content Include="Scripts\local\imgInfoAjax.js" />
     <Content Include="Scripts\mdb.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
@@ -2940,6 +2941,7 @@
     <Content Include="Views\Shared\_NavBarMdb.cshtml" />
     <Content Include="Views\Shared\_AdInfoMod.cshtml" />
     <Content Include="Views\Shared\_AdInfoMod2.cshtml" />
+    <Content Include="Views\Home\UserAds.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

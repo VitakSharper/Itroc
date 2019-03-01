@@ -1,0 +1,82 @@
+---------------------JQUERY
+
+enumere toutes les images sur la page
+
+$('img').attr({src:function(e){
+	console.log(e);
+	};
+});
+
+-----------------------equivalent document ready 
+$(function () {
+	var chckBoxes=$('input[type=checkbox]');
+	console.log(checkBoxes.val());---voir les valeurs des checkbox 
+})
+
+-----------------------ajouter du CSS sur un element
+$('.xxx').css('color','red');
+$('.xxx:first').html('test'); changement du premier element
+:last -le dernier
+:even
+
+$('xxx:eq(2)').css('color','blue'); -----------selectioné le deuxieme element "eq(2)" jquery override les style css;
+
+exemple en JavaScript de changement des elements dinamique:
+for(x=0;x<5;x++){
+	$('li:eq('+x+')').html(x+1);
+}
+
+$('li:gt(3)').css('color','green'); ----si li>3
+:lt(3) ---<3
+:eq(3)----- =3
+
+-----------------------selectioner plusieurs elements
+
+$('li,p,span').html('test');
+
+-----------------------attacher un evenement de click
+$('li').on('click',function(){
+	console.log($(this))
+})
+
+$('a').on('click',function(e){ ---annule l'action par default de l'element de lien hipertext
+	e.preventDefault();
+})
+
+---------------------------Filtrer
+$('li').on('click',function(){
+	$(this).filter('.xxx').css('color','red'); --------------le css s'applique que sur les elements li avec la classe .xxx
+});
+
+$('li').first().css('color','blue'); -- apliquer le css sur le premier element sur la liste;
+$('li').has('span').css('color','green') -- applique le css si trouve un spand dans la liste;
+
+
+$('.btn').click(function(){-----------------------ramene le html de tous les element .xxx 
+	var element =$('.xxx').map(function(){
+	return $(this).html();
+	});
+	console.log(element);
+})
+
+$('li').slice(3,7).css('color','yellow');----on click applique le css a partir de troisieme element jouqua septieme;
+
+------------------------------------------------------traverser
+
+$('.btn').click(function(){
+	var elementKids=$('p').children(); ----------ramene tous les elements enfents de paragraphe;
+	console.log(elementKids);
+})
+
+$('span').click(function(){
+	var elementKids=$(this).parent().attr('title');---------------ramenne tout les elements parent de span
+	console.log(elementKids);
+})
+.parent().parent()---pour remonter deux fois les parents
+
+
+---------------------------------------------------------------
+$('span').click(function(){
+	var elementKids=$(this).closest('ul').attr('title');---------------ramenne tout les elements a coter de 'ul'
+	console.log(elementKids);
+})
