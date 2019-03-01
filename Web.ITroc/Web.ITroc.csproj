@@ -244,6 +244,10 @@
     <Compile Include="Persistence\Migrations\201902251352170_AddColumnsInUserTable.Designer.cs">
       <DependentUpon>201902251352170_AddColumnsInUserTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201903010824348_FixDateFieldInAdsTable.cs" />
+    <Compile Include="Persistence\Migrations\201903010824348_FixDateFieldInAdsTable.Designer.cs">
+      <DependentUpon>201903010824348_FixDateFieldInAdsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Repositories\ApiCollectionRepository.cs" />
     <Compile Include="Core\Repositories\IApiCollectionRepository.cs" />
     <Compile Include="Persistence\Repositories\ImageRepository.cs" />
@@ -2990,6 +2994,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201902251352170_AddColumnsInUserTable.resx">
       <DependentUpon>201902251352170_AddColumnsInUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201903010824348_FixDateFieldInAdsTable.resx">
+      <DependentUpon>201903010824348_FixDateFieldInAdsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

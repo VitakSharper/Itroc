@@ -61,7 +61,7 @@ namespace Web.ITroc.Controllers
                 CategoryId = viewModel.Category,
                 AdTitle = viewModel.AdTitle,
                 AdDescription = viewModel.AdDescription,
-                AdCeate = DateTime.Now,
+                AdCreate = DateTime.Now,
                 CodePostalId = _unitOfWork.Ads.CheckCpVilleIsMatch(viewModel),
                 AdAdresse = viewModel.Adresse,
                 Poubelle = false,
