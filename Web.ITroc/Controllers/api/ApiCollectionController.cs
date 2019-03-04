@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,6 +39,19 @@ namespace Web.ITroc.Controllers.api
             return await _unitOfWork.Home.GetAllAdsToIndex();
         }
 
+
+        [HttpDelete]
+        public async Task<IHttpActionResult> RemoveAd(int id)
+        {
+            var result = await _unitOfWork.ApiCollection.GetAdFromDbByCurentUser(id, User.Identity.GetUserId());
+
+            if (result == null)
+                return NotFound();
+
+            await _unitOfWork.AsyncComplete();
+
+            return Ok(id);
+        }
 
     }
 }

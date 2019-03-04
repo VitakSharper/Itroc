@@ -5,26 +5,26 @@
         dataType: "json",
         success: function (data) {
             if (data && data[0]) {
-                $('.carousel-inner').empty();
-                $('.carousel-indicators').empty();
+                $(".carousel-inner").empty();
+                $(".carousel-indicators").empty();
                 $(".acordionTitre").empty();
                 $(".green-text").empty();
                 $(".collapseBody").empty();
 
-                $(".acordionTitre").append('<strong>' + data[0].AdTitle + '</strong><i class="fas fa-angle-down rotate-icon"></i>');
-                $(".green-text").append('<strong>' + data[0].AdCeate + '</strong>');
+                $(".acordionTitre").append("<strong>" + data[0].AdTitle + '</strong><i class="fas fa-angle-down rotate-icon"></i>');
+                $(".green-text").append("<strong>" + data[0].AdCreate + "</strong>");
                 $(".collapseBody").append(data[0].AdDescription);
 
-                $('.carousel-inner').append('<div class="carousel-item active"><img class="d-block w-100 imgMax"  src="data:image/png;base64,' + data[0].Images[0] + '"alt="First slide"></div>');
-                $('.carousel-indicators').append('<li data-target="#carousel-thumb" data-slide-to="0" class="active"><img class="d-block monimage2"  src="data:image/png;base64,' + data[0].Images[0] + '"></li>');
+                $(".carousel-inner").append('<div class="carousel-item active"><img class="d-block w-100 imgMax"  src="data:image/png;base64,' + data[0].Images[0] + '"alt="First slide"></div>');
+                $(".carousel-indicators").append('<li data-target="#carousel-thumb" data-slide-to="0" class="active"><img class="d-block monimage2"  src="data:image/png;base64,' + data[0].Images[0] + '"></li>');
 
                 for (var i = 0; i < data[0].Images.length; i++) {
-                    $('.carousel-inner').append(
+                    $(".carousel-inner").append(
                         '<div class="carousel-item"><img class="d-block w-100 imgMax" src="data:image/png;base64,' +
                         data[0].Images[i] + '"alt="Second slide" ></div>');
                 }
                 for (var j = 1; j < data[0].Images.length; j++) {
-                    $('.carousel-indicators').append('<li data-target="#carousel-thumb" data-slide-to="' + j + '"><img class="mx-auto d-block  monimage2 avatar z-depth-1 img-fluid"  src="data:image/png;base64,' + data[0].Images[j] + '"></li>');
+                    $(".carousel-indicators").append('<li data-target="#carousel-thumb" data-slide-to="' + j + '"><img class="mx-auto d-block  monimage2 avatar z-depth-1 img-fluid"  src="data:image/png;base64,' + data[0].Images[j] + '"></li>');
                 }
 
 
@@ -37,4 +37,39 @@
             }
         }
     });
+}
+
+
+function deleteMy(adId) {
+    console.log(adId);
+
+    $.confirm({
+        title: "Confirm!",
+        content: "Supprimer l'annonce !",
+        buttons: {
+            confirm: function () {
+                $.ajax({
+                        url: "/api/ApiCollection/RemoveAd?id=" + adId,
+                        method: "DELETE"
+                    })
+                    .done(function() {
+                        $(".div-" + adId).fadeOut(function() {
+                            $(this).remove();
+                        });
+                        $.alert("Suppression avec success!");
+                    })
+                    .fail(function() {
+                        alert("Fail");
+                    });
+
+
+            },
+            cancel: function () {
+                $.alert("Annulée!");
+            }
+        }
+    });
+
+
+
 }

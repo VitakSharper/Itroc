@@ -9,5 +9,6 @@ namespace Web.ITroc.Core.Repositories
     {
         IEnumerable<Codepostal> GetCpOrVilleByQuery(string query);
         Task<IEnumerable<AdsDto>> GetOneAdFromDb(int id);
+        Task<Ads> GetAdFromDbByCurentUser(int id, string userId);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Web.ITroc.Core;
+﻿using System.Threading.Tasks;
+using Web.ITroc.Core;
 using Web.ITroc.Core.Repositories;
 using Web.ITroc.Persistence.Repositories;
 
@@ -27,6 +28,10 @@ namespace Web.ITroc.Persistence
             _context.SaveChanges();
         }
 
+        public async Task AsyncComplete()
+        {
+            await _context.SaveChangesAsync();
+        }
 
     }
 }

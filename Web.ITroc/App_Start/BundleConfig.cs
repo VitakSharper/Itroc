@@ -14,6 +14,7 @@ namespace Web.ITroc
                         "~/Scripts/toastr.js",
                         "~/Scripts/typeahead.bundle.js",
                         "~/Scripts/mdb.js",
+                        "~/Scripts/jquery-confirm.js",
                         "~/Scripts/kendo/kendo.all.min.js",
                         "~/Scripts/kendo/kendo.aspnetmvc.min.js",
                         "~/Scripts/local/imgInfoAjax.js"));
@@ -36,6 +37,7 @@ namespace Web.ITroc
                 "~/Content/style.css",
                 "~/Content/toastr.css",
                 "~/Content/typeahead.css",
+                "~/Content/jquery-confirm.css",
                 "~/Content/kendo/kendo.common.min.css",
                 "~/Content/kendo/kendo.default.min.css",
                 "~/Content/site.css"));

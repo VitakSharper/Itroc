@@ -1,4 +1,5 @@
-﻿using Web.ITroc.Core.Repositories;
+﻿using System.Threading.Tasks;
+using Web.ITroc.Core.Repositories;
 
 namespace Web.ITroc.Core
 {
@@ -9,5 +10,6 @@ namespace Web.ITroc.Core
         IImageRepository Image { get; }
         IApiCollectionRepository ApiCollection { get; }
         void Complete();
+        Task AsyncComplete();
     }
 }

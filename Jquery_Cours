@@ -39,7 +39,7 @@ $('li').on('click',function(){
 	console.log($(this))
 })
 
-$('a').on('click',function(e){ ---annule l'action par default de l'element de lien hipertext
+$('a').on('click',function(e){ -----------------"preventDefault" annule l'action par default de l'element de lien hipertext
 	e.preventDefault();
 })
 
@@ -99,3 +99,18 @@ $('span').css({
 $('span').click(function(){
 	$(this).siblings().text('testtest'); ---s'applique sur frères et soeurs
 })
+
+-------------------------------------------------------------Email REGEX
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+--------------------------------------------------------------------
+To automatically format code on save:
+Press Ctrl , to open user preferences
+Enter the following code in the opened settings file
+
+    {
+      "editor.formatOnSave": true
+    }
+
+Save file
+--------------------------------------------------------------------
