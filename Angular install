@@ -1,0 +1,65 @@
+Ajouter un component Angular
+
+dans le repertoire ClientApp\src\app du projet se trouve les components d'Angular;
+ils faut installer angular globale dans la racine du projet: 
+
+-- npm install @angular/cli@latest -g
+
+il faut aller dans un autre repertoire et generer un nouveau projet angular:
+
+-- ng new hello-worlk
+
+sur la liste des fichiers generer il faut copier le fichier angular.json dans la racine du projet dotnetcore:
+modifier le fichier comme cesi "sourceRoot": "ClientApp";
+
+********il faut installer le angular-cli dans la racine du projet dotnet:
+
+-- npm install @angular/cli@latest --save-dev
+
+********dans le repertoir des components ClientApp\src\app on va ajouter un component:
+
+-- ng g component new-form
+
+*******ensuite il faut supprimer le fichier des unit test new-form.component.spec.ts
+
+*******ensuite il faut enregister le nouveau component dans le fichier app.module.ts
+dans RouterModule.forRoot il faut cree une nouvelle route
+-- {path: 'xxx/new',component:NewFormComponent}
+
+******il faut ajouter le link vers le component dans le bootstrap page 
+
+-- a [routerLink]="['/xxx/new']"
+
+*******bootstrap crreee une forme en zencoding
+
+form>div.form-groupe>label+select
+
+**********il faut cree un service dans le repertoire ClientApp\src\app   mkdir services
+-- ng g service make
+
+ensuite supprimer le ficher de unittest make.service.spec.ts
+dans le ficher make.service.ts ajouter la ligne "import { HttpClient } from '@angular/common/http';"
+et l'injecter dans le constructeur "private httm: HttpClient"
+
+ajouter cette methode 
+getMakes(){
+    return this.Http.get('/api/makes');    
+  }
+
+  ensuite enregistrer l'operator .map 
+  import 'rxjs/add/operator/map';
+
+  ensuite il faut ajouter le provider dans "app.module.ts":
+
+  providers: [
+    MakeService
+  ],
+
+  et ensuite il va ajouter automatiquement la ligne en haut:
+
+import { MakeService } from './services/make.service';
+
+dans xxx-new.component.ts il faut ajouter dans le constructor "private MakeService: MakeService" et importer
+import { MakeService } from '../services/make.service';
+
+et dans ngOnInit() ajouter "this.MakeService.getMakes().subscribe(makes => this.makes = makes);"
