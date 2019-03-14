@@ -16,26 +16,25 @@
                 <div class="d-flex flex-row  align-content-between flex-wrap">
                     @foreach (var ad in Model)
                     {
-                        <div class="col-md-2 div-@ad.Id ">
-                            <div class="card card-cascade narrower blue lighten-3 hoverable">
-                                <div class="view view-cascade overlay" data-toggle="modal" data-target="#modalQuickView" onclick="imageTrigger(@ad.Id)">
-                                    <img src="@($"data:image/png;base64,{@ad.PhotoAd}")" class="img-fluid card-img-top imgMin" alt="@ad.AdTitle">
-                                    <a>
-                                        <div class="mask rgba-amber-slight"></div>
-                                    </a>
-                                </div>
-                                <div class="card-body card-body-cascade">
-                                    <div class="date view overlay">
-                                        <div class="month">
-                                            @ad.AdCreate.ToString("MMM")
-                                        </div>
-                                        <div class="day">
-                                            @ad.AdCreate.ToString("d ")
-                                        </div>
+                    <div class="col-md-2 div-@ad.Id ">
+                        <div class="card card-cascade narrower blue lighten-3 hoverable">
+                            <div class="view view-cascade overlay" data-toggle="modal" data-target="#modalQuickView" onclick="imageTrigger(@ad.Id)">
+                                <img src="@($"data:image/png;base64,{@ad.PhotoAd}")" class="img-fluid card-img-top imgMin" alt="@ad.AdTitle">
+                                <a>
+                                    <div class="mask rgba-amber-slight"></div>
+                                </a>
+                            </div>
+                            <div class="card-body card-body-cascade">
+                                <div class="date view overlay">
+                                    <div class="month">
+                                        @ad.AdCreate.ToString("MMM")
                                     </div>
-                                    <h4 class="card-title cardtext">@ad.AdTitle</h4>
-                                    <p class="card-text text-muted cardtext">@ad.AdDescription</p>
+                                    <div class="day">
+                                        @ad.AdCreate.ToString("d ")
+                                    </div>
                                 </div>
+                                <h4 class="card-title cardtext">@ad.AdTitle</h4>
+                                <p class="card-text text-muted cardtext">@ad.AdDescription</p>
                             </div>
                             <div class="flex-row chip chip-lg aqua-gradient white-text">
                                 <span class="badge badge-pill waves-effect light-blue"><i class="fas fa-edit" aria-hidden="true"></i></span>|
@@ -43,7 +42,17 @@
                             </div>
                             <hr class="my-5" />
 
+
                         </div>
+                        <hr>
+                        <div class="d-flex flex-row">
+                            <span class="badge badge-primary p-2"><i class="fas fa-edit"></i></span>|
+                            <span class="badge badge-danger p-2" onclick="deleteMy(@ad.Id)"><i class="fas fa-trash"></i></span>
+                        </div>
+                        <hr/>
+
+
+                    </div>
                     }
                 </div>
             </div>
