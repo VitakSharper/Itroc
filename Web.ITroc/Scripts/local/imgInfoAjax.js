@@ -49,7 +49,7 @@ function deleteMy(adId) {
         buttons: {
             confirm: function () {
                 $.ajax({
-                        url: "/api/ApiCollection/RemoveAd?id=" + adId,
+                        url: "/api/ApiCollection/RemoveAd/"+adId,
                         method: "DELETE"
                     })
                     .done(function() {
