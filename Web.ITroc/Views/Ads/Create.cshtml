@@ -67,7 +67,7 @@
 
                             @Html.ValidationMessageFor(x => x.Files)
                         </div>
-                        <button class=" btn waves-effect waves-light " type="submit">VALIDER MON ANNONCE</button>
+                        <button class=" btn btn-outline-primary btn-rounded waves-effect " type="submit">VALIDER MON ANNONCE</button>
                         @Html.HiddenFor(m => m.ErrorMess, new { @id = "errMsg", errror = @Model.ErrorMess })
                     }
                 </div>

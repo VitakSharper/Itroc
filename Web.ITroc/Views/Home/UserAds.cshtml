@@ -36,6 +36,13 @@
                                 <h4 class="card-title cardtext">@ad.AdTitle</h4>
                                 <p class="card-text text-muted cardtext">@ad.AdDescription</p>
                             </div>
+                            <div class="flex-row chip chip-lg aqua-gradient white-text">
+                                <span class="badge badge-pill waves-effect light-blue"><i class="fas fa-edit" aria-hidden="true"></i></span>|
+                                <span class="badge badge-pill waves-effect pink" onclick="deleteMy(@ad.Id)"><i class="fas fa-trash" aria-hidden="true"></i></span>
+                            </div>
+                            <hr class="my-5" />
+
+
                         </div>
                         <hr>
                         <div class="d-flex flex-row">
