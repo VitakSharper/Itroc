@@ -6,8 +6,6 @@ namespace Web.ITroc
     {
         public static void Register(HttpConfiguration config)
         {
-
-
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
